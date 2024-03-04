@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sfx_walk_on_solid_metal2.mp3-f1521122e68f65f532971dcf85acf08f.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/player_drone/sfx_walk_on_solid_metal2.mp3"
+dest_files=[ "res://.import/sfx_walk_on_solid_metal2.mp3-f1521122e68f65f532971dcf85acf08f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

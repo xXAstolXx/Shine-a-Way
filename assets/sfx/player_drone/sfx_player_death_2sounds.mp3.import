@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sfx_player_death_2sounds.mp3-206ced88b82d9060c218d07c8d6d0523.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/player_drone/sfx_player_death_2sounds.mp3"
+dest_files=[ "res://.import/sfx_player_death_2sounds.mp3-206ced88b82d9060c218d07c8d6d0523.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

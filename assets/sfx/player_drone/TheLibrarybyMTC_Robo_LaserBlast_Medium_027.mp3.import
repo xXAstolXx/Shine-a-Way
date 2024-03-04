@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/TheLibrarybyMTC_Robo_LaserBlast_Medium_027.mp3-c5a171b9be5440b966a1948e858374f1.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/player_drone/TheLibrarybyMTC_Robo_LaserBlast_Medium_027.mp3"
+dest_files=[ "res://.import/TheLibrarybyMTC_Robo_LaserBlast_Medium_027.mp3-c5a171b9be5440b966a1948e858374f1.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

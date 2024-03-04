@@ -1,0 +1,38 @@
+[gd_resource type="ShaderMaterial" load_steps=10 format=2]
+
+[ext_resource path="res://other/shader/enemy_platform.gdshader" type="Shader" id=1]
+[ext_resource path="res://assets/enemy/Stunned_Normalmaps/RIght_Normal_Maps(35).png" type="Texture" id=2]
+[ext_resource path="res://assets/enemy/Stunned_Normalmaps/RIght_Normal_Maps(37).png" type="Texture" id=3]
+[ext_resource path="res://assets/enemy/Stunned_Normalmaps/RIght_Normal_Maps(36).png" type="Texture" id=4]
+[ext_resource path="res://assets/enemy/Stunned_Normalmaps/RIght_Normal_Maps(39).png" type="Texture" id=5]
+[ext_resource path="res://assets/enemy/Stunned_Normalmaps/RIght_Normal_Maps(38).png" type="Texture" id=6]
+[ext_resource path="res://other/noise_textures/enemy_platform_distortion_x.tres" type="Texture" id=7]
+[ext_resource path="res://other/noise_textures/enemy_platform_distortion_y.tres" type="Texture" id=8]
+
+[sub_resource type="AnimatedTexture" id=35]
+flags = 4
+frames = 5
+oneshot = true
+fps = 16.0
+frame_0/texture = ExtResource( 2 )
+frame_1/texture = ExtResource( 4 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 3 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 6 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 5 )
+frame_4/delay_sec = 0.0
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource( 1 )
+shader_param/addBrightness = 0.0
+shader_param/brightnessThres = 0.165
+shader_param/transparencyG = 1.0
+shader_param/afterGlow = false
+shader_param/transparency = 0.0
+shader_param/distortion = 0.0
+shader_param/normal_map = SubResource( 35 )
+shader_param/distortMapX = ExtResource( 7 )
+shader_param/distortMapY = ExtResource( 8 )

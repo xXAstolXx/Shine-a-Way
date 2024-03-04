@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://other/color_gradients/FlairParticles.tres" type="Gradient" id=1]
+
+[node name="FlairParticles" type="CPUParticles2D"]
+emitting = false
+amount = 3000
+lifetime = 2.0
+one_shot = true
+speed_scale = 2.65
+explosiveness = 0.65
+randomness = 0.51
+lifetime_randomness = 0.51
+emission_shape = 1
+emission_sphere_radius = 2.0
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+initial_velocity_random = 0.24
+linear_accel = 11.01
+radial_accel = 5.0
+damping = 100.0
+scale_amount = 2.0
+scale_amount_random = 1.0
+color_ramp = ExtResource( 1 )

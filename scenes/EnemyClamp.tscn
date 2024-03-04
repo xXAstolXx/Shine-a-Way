@@ -1,0 +1,1329 @@
+[gd_scene load_steps=252 format=2]
+
+[ext_resource path="res://scripts/EnemyClamp.gd" type="Script" id=2]
+[ext_resource path="res://scenes/RayCast.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sfx/entity/sfx_flying_idle_zimbot_unrelentingagony2.mp3" type="AudioStream" id=4]
+[ext_resource path="res://scripts/findRoute.gd" type="Script" id=5]
+[ext_resource path="res://other/shader/EnemyClamp.gdshader" type="Shader" id=6]
+[ext_resource path="res://assets/enemy/attacking/0195.png" type="Texture" id=7]
+[ext_resource path="res://assets/enemy/idle/0005.png" type="Texture" id=8]
+[ext_resource path="res://assets/sfx/entity/sfx_burning_entity_better_magnuswaker_burning_flesh.mp3" type="AudioStream" id=9]
+[ext_resource path="res://assets/enemy/idle/0006.png" type="Texture" id=10]
+[ext_resource path="res://assets/enemy/idle/0001.png" type="Texture" id=11]
+[ext_resource path="res://assets/enemy/idle/0009.png" type="Texture" id=12]
+[ext_resource path="res://assets/enemy/idle/0011.png" type="Texture" id=13]
+[ext_resource path="res://assets/enemy/idle/0008.png" type="Texture" id=14]
+[ext_resource path="res://assets/enemy/idle/0002.png" type="Texture" id=15]
+[ext_resource path="res://assets/enemy/idle/0010.png" type="Texture" id=16]
+[ext_resource path="res://assets/enemy/idle/0012.png" type="Texture" id=17]
+[ext_resource path="res://assets/enemy/idle/0013.png" type="Texture" id=18]
+[ext_resource path="res://assets/enemy/idle/0000.png" type="Texture" id=19]
+[ext_resource path="res://assets/enemy/idle/0007.png" type="Texture" id=20]
+[ext_resource path="res://assets/enemy/idle/0014.png" type="Texture" id=21]
+[ext_resource path="res://assets/enemy/idle/0004.png" type="Texture" id=22]
+[ext_resource path="res://assets/enemy/idle/0003.png" type="Texture" id=23]
+[ext_resource path="res://assets/enemy/idle/0016.png" type="Texture" id=24]
+[ext_resource path="res://assets/enemy/idle/0018.png" type="Texture" id=25]
+[ext_resource path="res://assets/enemy/idle/0017.png" type="Texture" id=26]
+[ext_resource path="res://assets/enemy/idle/0015.png" type="Texture" id=27]
+[ext_resource path="res://assets/enemy/idle/0071.png" type="Texture" id=28]
+[ext_resource path="res://assets/enemy/idle/0073.png" type="Texture" id=29]
+[ext_resource path="res://assets/enemy/idle/0070.png" type="Texture" id=30]
+[ext_resource path="res://assets/enemy/idle/0068.png" type="Texture" id=31]
+[ext_resource path="res://assets/enemy/idle/0066.png" type="Texture" id=32]
+[ext_resource path="res://assets/enemy/idle/0072.png" type="Texture" id=33]
+[ext_resource path="res://assets/enemy/idle/0069.png" type="Texture" id=34]
+[ext_resource path="res://assets/enemy/idle/0074.png" type="Texture" id=35]
+[ext_resource path="res://assets/enemy/idle/0075.png" type="Texture" id=36]
+[ext_resource path="res://assets/enemy/idle/0076.png" type="Texture" id=37]
+[ext_resource path="res://assets/enemy/idle/0067.png" type="Texture" id=38]
+[ext_resource path="res://assets/enemy/idle/0079.png" type="Texture" id=39]
+[ext_resource path="res://assets/enemy/idle/0077.png" type="Texture" id=40]
+[ext_resource path="res://assets/enemy/idle/0078.png" type="Texture" id=41]
+[ext_resource path="res://assets/enemy/idle/0022.png" type="Texture" id=42]
+[ext_resource path="res://assets/enemy/idle/0024.png" type="Texture" id=43]
+[ext_resource path="res://assets/enemy/idle/0027.png" type="Texture" id=44]
+[ext_resource path="res://assets/enemy/idle/0020.png" type="Texture" id=45]
+[ext_resource path="res://assets/enemy/idle/0029.png" type="Texture" id=46]
+[ext_resource path="res://assets/enemy/idle/0031.png" type="Texture" id=47]
+[ext_resource path="res://assets/enemy/idle/0032.png" type="Texture" id=48]
+[ext_resource path="res://assets/enemy/idle/0034.png" type="Texture" id=49]
+[ext_resource path="res://assets/enemy/idle/0026.png" type="Texture" id=50]
+[ext_resource path="res://assets/enemy/idle/0019.png" type="Texture" id=51]
+[ext_resource path="res://assets/enemy/idle/0023.png" type="Texture" id=52]
+[ext_resource path="res://assets/enemy/idle/0030.png" type="Texture" id=53]
+[ext_resource path="res://assets/enemy/idle/0033.png" type="Texture" id=54]
+[ext_resource path="res://assets/enemy/idle/0028.png" type="Texture" id=55]
+[ext_resource path="res://assets/enemy/idle/0025.png" type="Texture" id=56]
+[ext_resource path="res://assets/enemy/idle/0035.png" type="Texture" id=57]
+[ext_resource path="res://assets/enemy/idle/0021.png" type="Texture" id=58]
+[ext_resource path="res://assets/enemy/idle/0044.png" type="Texture" id=59]
+[ext_resource path="res://assets/enemy/idle/0048.png" type="Texture" id=60]
+[ext_resource path="res://assets/enemy/idle/0049.png" type="Texture" id=61]
+[ext_resource path="res://assets/enemy/idle/0050.png" type="Texture" id=62]
+[ext_resource path="res://assets/enemy/idle/0051.png" type="Texture" id=63]
+[ext_resource path="res://assets/enemy/idle/0040.png" type="Texture" id=64]
+[ext_resource path="res://assets/enemy/idle/0052.png" type="Texture" id=65]
+[ext_resource path="res://assets/enemy/idle/0041.png" type="Texture" id=66]
+[ext_resource path="res://assets/enemy/idle/0038.png" type="Texture" id=67]
+[ext_resource path="res://assets/enemy/idle/0039.png" type="Texture" id=68]
+[ext_resource path="res://assets/enemy/idle/0045.png" type="Texture" id=69]
+[ext_resource path="res://assets/enemy/idle/0042.png" type="Texture" id=70]
+[ext_resource path="res://assets/enemy/idle/0047.png" type="Texture" id=71]
+[ext_resource path="res://assets/enemy/idle/0046.png" type="Texture" id=72]
+[ext_resource path="res://assets/enemy/idle/0037.png" type="Texture" id=73]
+[ext_resource path="res://assets/enemy/idle/0036.png" type="Texture" id=74]
+[ext_resource path="res://assets/enemy/idle/0043.png" type="Texture" id=75]
+[ext_resource path="res://assets/enemy/idle/0053.png" type="Texture" id=76]
+[ext_resource path="res://assets/enemy/idle/0055.png" type="Texture" id=77]
+[ext_resource path="res://assets/enemy/idle/0056.png" type="Texture" id=78]
+[ext_resource path="res://assets/enemy/idle/0057.png" type="Texture" id=79]
+[ext_resource path="res://assets/enemy/idle/0054.png" type="Texture" id=80]
+[ext_resource path="res://assets/enemy/idle/0060.png" type="Texture" id=81]
+[ext_resource path="res://assets/enemy/idle/0058.png" type="Texture" id=82]
+[ext_resource path="res://assets/enemy/idle/0062.png" type="Texture" id=83]
+[ext_resource path="res://assets/enemy/idle/0063.png" type="Texture" id=84]
+[ext_resource path="res://assets/enemy/idle/0061.png" type="Texture" id=85]
+[ext_resource path="res://assets/enemy/idle/0059.png" type="Texture" id=86]
+[ext_resource path="res://assets/enemy/idle/0064.png" type="Texture" id=87]
+[ext_resource path="res://assets/enemy/idle/0065.png" type="Texture" id=88]
+[ext_resource path="res://assets/sfx/entity/sfx_entity_plattform_idle_loop.mp3" type="AudioStream" id=89]
+[ext_resource path="res://assets/enemy/idle/blobs/0006.png" type="Texture" id=90]
+[ext_resource path="res://assets/enemy/attacking/0190.png" type="Texture" id=91]
+[ext_resource path="res://assets/enemy/idle/blobs/0012.png" type="Texture" id=92]
+[ext_resource path="res://assets/enemy/attacking/0193.png" type="Texture" id=93]
+[ext_resource path="res://assets/enemy/attacking/0192.png" type="Texture" id=94]
+[ext_resource path="res://assets/enemy/attacking/0194.png" type="Texture" id=95]
+[ext_resource path="res://assets/enemy/idle/blobs/0024.png" type="Texture" id=96]
+[ext_resource path="res://assets/enemy/attacking/0191.png" type="Texture" id=97]
+[ext_resource path="res://assets/enemy/idle/blobs/0025.png" type="Texture" id=98]
+[ext_resource path="res://assets/enemy/idle/blobs/0026.png" type="Texture" id=99]
+[ext_resource path="res://assets/enemy/idle/blobs/0027.png" type="Texture" id=100]
+[ext_resource path="res://assets/enemy/idle/blobs/0028.png" type="Texture" id=101]
+[ext_resource path="res://assets/enemy/idle/blobs/0029.png" type="Texture" id=102]
+[ext_resource path="res://assets/enemy/idle/blobs/0030.png" type="Texture" id=103]
+[ext_resource path="res://assets/enemy/attacking/0198.png" type="Texture" id=104]
+[ext_resource path="res://assets/enemy/attacking/0199.png" type="Texture" id=105]
+[ext_resource path="res://assets/enemy/attacking/0200.png" type="Texture" id=106]
+[ext_resource path="res://assets/enemy/attacking/0203.png" type="Texture" id=107]
+[ext_resource path="res://assets/enemy/attacking/0204.png" type="Texture" id=108]
+[ext_resource path="res://assets/enemy/attacking/0201.png" type="Texture" id=109]
+[ext_resource path="res://assets/enemy/attacking/0202.png" type="Texture" id=110]
+[ext_resource path="res://assets/enemy/attacking/0196.png" type="Texture" id=111]
+[ext_resource path="res://assets/enemy/attacking/0197.png" type="Texture" id=112]
+[ext_resource path="res://assets/enemy/attacking/0211.png" type="Texture" id=113]
+[ext_resource path="res://assets/enemy/attacking/0212.png" type="Texture" id=114]
+[ext_resource path="res://assets/enemy/attacking/0210.png" type="Texture" id=115]
+[ext_resource path="res://assets/enemy/attacking/0207.png" type="Texture" id=116]
+[ext_resource path="res://assets/enemy/attacking/0209.png" type="Texture" id=117]
+[ext_resource path="res://assets/enemy/attacking/0205.png" type="Texture" id=118]
+[ext_resource path="res://assets/enemy/attacking/0206.png" type="Texture" id=119]
+[ext_resource path="res://assets/enemy/attacking/0208.png" type="Texture" id=120]
+[ext_resource path="res://assets/enemy/idle/blobs/0031.png" type="Texture" id=121]
+[ext_resource path="res://assets/enemy/idle/blobs/0032.png" type="Texture" id=122]
+[ext_resource path="res://assets/enemy/idle/blobs/0011.png" type="Texture" id=123]
+[ext_resource path="res://assets/enemy/idle/blobs/0013.png" type="Texture" id=124]
+[ext_resource path="res://assets/enemy/idle/blobs/0018.png" type="Texture" id=125]
+[ext_resource path="res://assets/enemy/idle/blobs/0009.png" type="Texture" id=126]
+[ext_resource path="res://assets/enemy/idle/blobs/0010.png" type="Texture" id=127]
+[ext_resource path="res://assets/enemy/idle/blobs/0019.png" type="Texture" id=128]
+[ext_resource path="res://assets/enemy/idle/blobs/0020.png" type="Texture" id=129]
+[ext_resource path="res://assets/enemy/idle/blobs/0021.png" type="Texture" id=130]
+[ext_resource path="res://assets/enemy/idle/blobs/0022.png" type="Texture" id=131]
+[ext_resource path="res://assets/enemy/idle/blobs/0000.png" type="Texture" id=132]
+[ext_resource path="res://assets/enemy/idle/blobs/0003.png" type="Texture" id=133]
+[ext_resource path="res://assets/enemy/idle/blobs/0001.png" type="Texture" id=134]
+[ext_resource path="res://assets/enemy/idle/blobs/0004.png" type="Texture" id=135]
+[ext_resource path="res://assets/enemy/idle/blobs/0005.png" type="Texture" id=136]
+[ext_resource path="res://assets/enemy/idle/blobs/0002.png" type="Texture" id=137]
+[ext_resource path="res://assets/enemy/idle/blobs/0007.png" type="Texture" id=138]
+[ext_resource path="res://assets/enemy/idle/blobs/0008.png" type="Texture" id=139]
+[ext_resource path="res://assets/enemy/idle/blobs/0014.png" type="Texture" id=140]
+[ext_resource path="res://assets/enemy/idle/blobs/0015.png" type="Texture" id=141]
+[ext_resource path="res://assets/enemy/idle/blobs/0016.png" type="Texture" id=142]
+[ext_resource path="res://assets/enemy/idle/blobs/0017.png" type="Texture" id=143]
+[ext_resource path="res://assets/enemy/idle/blobs/0023.png" type="Texture" id=144]
+[ext_resource path="res://assets/enemy/idle/blobs/0037.png" type="Texture" id=145]
+[ext_resource path="res://assets/enemy/idle/blobs/0034.png" type="Texture" id=146]
+[ext_resource path="res://assets/enemy/idle/blobs/0036.png" type="Texture" id=147]
+[ext_resource path="res://assets/enemy/idle/blobs/0038.png" type="Texture" id=148]
+[ext_resource path="res://assets/enemy/idle/blobs/0035.png" type="Texture" id=149]
+[ext_resource path="res://assets/enemy/idle/blobs/0033.png" type="Texture" id=150]
+[ext_resource path="res://assets/enemy/idle/blobs/0072.png" type="Texture" id=151]
+[ext_resource path="res://assets/enemy/idle/blobs/0074.png" type="Texture" id=152]
+[ext_resource path="res://assets/enemy/idle/blobs/0042.png" type="Texture" id=153]
+[ext_resource path="res://assets/enemy/idle/blobs/0046.png" type="Texture" id=154]
+[ext_resource path="res://assets/enemy/idle/blobs/0055.png" type="Texture" id=155]
+[ext_resource path="res://assets/enemy/idle/blobs/0064.png" type="Texture" id=156]
+[ext_resource path="res://assets/enemy/idle/blobs/0068.png" type="Texture" id=157]
+[ext_resource path="res://assets/enemy/idle/blobs/0053.png" type="Texture" id=158]
+[ext_resource path="res://assets/enemy/idle/blobs/0073.png" type="Texture" id=159]
+[ext_resource path="res://assets/enemy/targeting/0155.png" type="Texture" id=160]
+[ext_resource path="res://assets/enemy/idle/blobs/0062.png" type="Texture" id=161]
+[ext_resource path="res://assets/enemy/idle/blobs/0077.png" type="Texture" id=162]
+[ext_resource path="res://assets/enemy/idle/blobs/0061.png" type="Texture" id=163]
+[ext_resource path="res://assets/enemy/idle/blobs/0058.png" type="Texture" id=167]
+[ext_resource path="res://assets/enemy/idle/blobs/0051.png" type="Texture" id=168]
+[ext_resource path="res://assets/enemy/targeting/0141.png" type="Texture" id=171]
+[ext_resource path="res://assets/enemy/idle/blobs/0041.png" type="Texture" id=172]
+[ext_resource path="res://assets/enemy/idle/blobs/0044.png" type="Texture" id=173]
+[ext_resource path="res://assets/enemy/idle/blobs/0063.png" type="Texture" id=174]
+[ext_resource path="res://assets/enemy/idle/blobs/0066.png" type="Texture" id=175]
+[ext_resource path="res://assets/enemy/idle/blobs/0047.png" type="Texture" id=176]
+[ext_resource path="res://assets/enemy/targeting/0138.png" type="Texture" id=178]
+[ext_resource path="res://assets/enemy/targeting/0140.png" type="Texture" id=179]
+[ext_resource path="res://assets/enemy/targeting/0143.png" type="Texture" id=180]
+[ext_resource path="res://assets/enemy/idle/blobs/0048.png" type="Texture" id=181]
+[ext_resource path="res://assets/enemy/targeting/0144.png" type="Texture" id=183]
+[ext_resource path="res://assets/enemy/idle/blobs/0067.png" type="Texture" id=184]
+[ext_resource path="res://assets/enemy/targeting/0145.png" type="Texture" id=186]
+[ext_resource path="res://assets/enemy/targeting/0146.png" type="Texture" id=187]
+[ext_resource path="res://assets/enemy/idle/blobs/0069.png" type="Texture" id=189]
+[ext_resource path="res://assets/enemy/idle/blobs/0039.png" type="Texture" id=190]
+[ext_resource path="res://assets/enemy/idle/blobs/0040.png" type="Texture" id=191]
+[ext_resource path="res://assets/enemy/idle/blobs/0079.png" type="Texture" id=192]
+[ext_resource path="res://assets/enemy/idle/blobs/0049.png" type="Texture" id=193]
+[ext_resource path="res://assets/enemy/targeting/0147.png" type="Texture" id=194]
+[ext_resource path="res://assets/enemy/targeting/0149.png" type="Texture" id=195]
+[ext_resource path="res://assets/enemy/idle/blobs/0075.png" type="Texture" id=197]
+[ext_resource path="res://assets/enemy/targeting/0148.png" type="Texture" id=198]
+[ext_resource path="res://assets/enemy/targeting/0152.png" type="Texture" id=199]
+[ext_resource path="res://assets/enemy/idle/blobs/0045.png" type="Texture" id=200]
+[ext_resource path="res://assets/enemy/targeting/0156.png" type="Texture" id=201]
+[ext_resource path="res://assets/enemy/targeting/0157.png" type="Texture" id=202]
+[ext_resource path="res://assets/enemy/targeting/0142.png" type="Texture" id=203]
+[ext_resource path="res://assets/enemy/idle/blobs/0078.png" type="Texture" id=204]
+[ext_resource path="res://assets/enemy/idle/blobs/0043.png" type="Texture" id=205]
+[ext_resource path="res://assets/enemy/idle/blobs/0057.png" type="Texture" id=206]
+[ext_resource path="res://assets/enemy/idle/blobs/0070.png" type="Texture" id=207]
+[ext_resource path="res://assets/enemy/idle/blobs/0059.png" type="Texture" id=208]
+[ext_resource path="res://assets/enemy/targeting/0139.png" type="Texture" id=209]
+[ext_resource path="res://assets/enemy/idle/blobs/0071.png" type="Texture" id=210]
+[ext_resource path="res://assets/enemy/idle/blobs/0052.png" type="Texture" id=211]
+[ext_resource path="res://assets/enemy/idle/blobs/0054.png" type="Texture" id=212]
+[ext_resource path="res://assets/enemy/idle/blobs/0056.png" type="Texture" id=213]
+[ext_resource path="res://assets/enemy/targeting/0150.png" type="Texture" id=214]
+[ext_resource path="res://assets/enemy/targeting/0151.png" type="Texture" id=215]
+[ext_resource path="res://assets/enemy/targeting/0154.png" type="Texture" id=216]
+[ext_resource path="res://assets/enemy/targeting/0158.png" type="Texture" id=217]
+[ext_resource path="res://assets/enemy/targeting/0153.png" type="Texture" id=218]
+[ext_resource path="res://assets/enemy/targeting/0159.png" type="Texture" id=219]
+[ext_resource path="res://assets/enemy/idle/blobs/0060.png" type="Texture" id=220]
+[ext_resource path="res://assets/enemy/idle/blobs/0076.png" type="Texture" id=221]
+[ext_resource path="res://assets/enemy/idle/blobs/0065.png" type="Texture" id=222]
+[ext_resource path="res://assets/enemy/idle/blobs/0050.png" type="Texture" id=223]
+
+[sub_resource type="Curve2D" id=5]
+_data = {
+"points": PoolVector2Array( -28.5905, -5.88627, 28.5905, 5.88627, 112, -144, -18.0793, -7.14762, 18.0793, 7.14762, 332, 50, 0, 0, 0, 0, 608, 16, 79.087, -1.9622, -79.087, 1.9622, 672, 256, -0.706917, -61.1968, 0.706917, 61.1968, 512, 336, 0, 0, 0, 0, 320, 384, 24.386, 17.6588, -24.386, -17.6588, 64, 368, 2.10224, 36.579, -2.10224, -36.579, -16, 256, -12.6134, 41.2039, 12.6134, -41.2039, 112, 176, -37.527, 18.2359, 37.527, -18.2359, -1, -1, -5.04538, 5.04538, 5.04538, -5.04538, 64, -80, 0, 0, 0, 0, 112, -144 )
+}
+
+[sub_resource type="OpenSimplexNoise" id=38]
+period = 0.1
+
+[sub_resource type="NoiseTexture" id=39]
+noise = SubResource( 38 )
+
+[sub_resource type="OpenSimplexNoise" id=40]
+period = 10.0
+
+[sub_resource type="NoiseTexture" id=41]
+noise = SubResource( 40 )
+
+[sub_resource type="ShaderMaterial" id=32]
+resource_local_to_scene = true
+shader = ExtResource( 6 )
+shader_param/addBrightness = 0.0
+shader_param/brightnessThres = 0.165
+shader_param/transparency = 0.0
+shader_param/distortion = 0.0
+shader_param/distortMapX = SubResource( 39 )
+shader_param/distortMapY = SubResource( 41 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 91 ), ExtResource( 97 ), ExtResource( 94 ), ExtResource( 93 ), ExtResource( 95 ), ExtResource( 7 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 104 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 109 ), ExtResource( 110 ), ExtResource( 107 ), ExtResource( 108 ), ExtResource( 118 ), ExtResource( 119 ), ExtResource( 116 ), ExtResource( 120 ), ExtResource( 117 ), ExtResource( 115 ), ExtResource( 113 ), ExtResource( 114 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="OpenSimplexNoise" id=36]
+period = 1.0
+
+[sub_resource type="NoiseTexture" id=33]
+noise = SubResource( 36 )
+
+[sub_resource type="OpenSimplexNoise" id=37]
+period = 10.0
+
+[sub_resource type="NoiseTexture" id=34]
+noise = SubResource( 37 )
+
+[sub_resource type="ShaderMaterial" id=35]
+resource_local_to_scene = true
+shader = ExtResource( 6 )
+shader_param/addBrightness = 0.0
+shader_param/brightnessThres = 0.0
+shader_param/transparency = 0.0
+shader_param/distortion = 0.0
+shader_param/distortMapX = SubResource( 33 )
+shader_param/distortMapY = SubResource( 34 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 19 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 23 ), ExtResource( 22 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 20 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 16 ), ExtResource( 13 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 27 ), ExtResource( 24 ), ExtResource( 26 ), ExtResource( 25 ), ExtResource( 51 ), ExtResource( 45 ), ExtResource( 58 ), ExtResource( 42 ), ExtResource( 52 ), ExtResource( 43 ), ExtResource( 56 ), ExtResource( 50 ), ExtResource( 44 ), ExtResource( 55 ), ExtResource( 46 ), ExtResource( 53 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 54 ), ExtResource( 49 ), ExtResource( 57 ), ExtResource( 74 ), ExtResource( 73 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 64 ), ExtResource( 66 ), ExtResource( 70 ), ExtResource( 75 ), ExtResource( 59 ), ExtResource( 69 ), ExtResource( 72 ), ExtResource( 71 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 65 ), ExtResource( 76 ), ExtResource( 80 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 79 ), ExtResource( 82 ), ExtResource( 86 ), ExtResource( 81 ), ExtResource( 85 ), ExtResource( 83 ), ExtResource( 84 ), ExtResource( 87 ), ExtResource( 88 ), ExtResource( 32 ), ExtResource( 38 ), ExtResource( 31 ), ExtResource( 34 ), ExtResource( 30 ), ExtResource( 28 ), ExtResource( 33 ), ExtResource( 29 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 39 ) ],
+"loop": true,
+"name": "normal",
+"speed": 5.0
+} ]
+
+[sub_resource type="OpenSimplexNoise" id=42]
+period = 0.1
+
+[sub_resource type="NoiseTexture" id=43]
+noise = SubResource( 42 )
+
+[sub_resource type="OpenSimplexNoise" id=44]
+period = 10.0
+
+[sub_resource type="NoiseTexture" id=45]
+noise = SubResource( 44 )
+
+[sub_resource type="ShaderMaterial" id=46]
+resource_local_to_scene = true
+shader = ExtResource( 6 )
+shader_param/addBrightness = 0.0
+shader_param/brightnessThres = 0.0
+shader_param/transparency = 0.0
+shader_param/distortion = 0.0
+shader_param/distortMapX = SubResource( 43 )
+shader_param/distortMapY = SubResource( 45 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 19 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 23 ), ExtResource( 22 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 20 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 16 ), ExtResource( 13 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 27 ), ExtResource( 24 ), ExtResource( 26 ), ExtResource( 25 ), ExtResource( 51 ), ExtResource( 45 ), ExtResource( 58 ), ExtResource( 42 ), ExtResource( 52 ), ExtResource( 43 ), ExtResource( 56 ), ExtResource( 50 ), ExtResource( 44 ), ExtResource( 55 ), ExtResource( 46 ), ExtResource( 53 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 54 ), ExtResource( 49 ), ExtResource( 57 ), ExtResource( 74 ), ExtResource( 73 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 64 ), ExtResource( 66 ), ExtResource( 70 ), ExtResource( 75 ), ExtResource( 59 ), ExtResource( 69 ), ExtResource( 72 ), ExtResource( 71 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 65 ), ExtResource( 76 ), ExtResource( 80 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 79 ), ExtResource( 82 ), ExtResource( 86 ), ExtResource( 81 ), ExtResource( 85 ), ExtResource( 83 ), ExtResource( 84 ), ExtResource( 87 ), ExtResource( 88 ), ExtResource( 32 ), ExtResource( 38 ), ExtResource( 31 ), ExtResource( 34 ), ExtResource( 30 ), ExtResource( 28 ), ExtResource( 33 ), ExtResource( 29 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 39 ) ],
+"loop": true,
+"name": "fleeing",
+"speed": 5.0
+} ]
+
+[sub_resource type="Shader" id=63]
+code = "shader_type canvas_item;
+render_mode blend_add;
+
+uniform sampler2D normal_map;
+uniform sampler2D distortMapX;
+uniform sampler2D distortMapY;
+
+uniform float addBrightness: hint_range(0.0, 10.0) = 0.0;
+uniform float brightnessThres: hint_range(0.0, 1.0) = 0.165;
+uniform float transparency: hint_range(0.0, 1.0) = 1;
+uniform float distortion: hint_range(0.0, 1.0) = 0;
+
+void fragment(){
+	// Converts the texture data into a unit vector, with each channel in the [-1, 1] range
+
+//NORMAL = 2.0 * texture(normal_map, UV).rgb - 1.0;
+
+vec2 distortedUV;
+distortedUV.x = UV.x + texture(distortMapX,UV).r - (0.5*distortion) - (texture(distortMapX,UV).r)*(1.0-distortion);
+distortedUV.y = UV.y + texture(distortMapY,UV).r - (0.5*distortion) - (texture(distortMapY,UV).r)*(1.0-distortion);
+
+vec4 c = texture(TEXTURE,distortedUV);
+
+float b = addBrightness*((c.r+c.g+c.b)/3.0);
+c.rgb = vec3(c.r+b*c.r,c.g+b*c.g,c.b+b*c.b);
+
+COLOR = vec4(c.r,c.g,c.b,c.a*(1.0-transparency));
+}"
+
+[sub_resource type="OpenSimplexNoise" id=64]
+period = 0.1
+
+[sub_resource type="NoiseTexture" id=60]
+noise = SubResource( 64 )
+
+[sub_resource type="OpenSimplexNoise" id=61]
+period = 10.0
+
+[sub_resource type="NoiseTexture" id=62]
+noise = SubResource( 61 )
+
+[sub_resource type="ShaderMaterial" id=58]
+resource_local_to_scene = true
+shader = SubResource( 63 )
+shader_param/addBrightness = 0.0
+shader_param/brightnessThres = 0.0
+shader_param/transparency = 0.0
+shader_param/distortion = 0.0
+shader_param/distortMapX = SubResource( 60 )
+shader_param/distortMapY = SubResource( 62 )
+
+[sub_resource type="SpriteFrames" id=21]
+animations = [ {
+"frames": [ ExtResource( 132 ), ExtResource( 134 ), ExtResource( 137 ), ExtResource( 133 ), ExtResource( 135 ), ExtResource( 136 ), ExtResource( 90 ), ExtResource( 138 ), ExtResource( 139 ), ExtResource( 126 ), ExtResource( 127 ), ExtResource( 123 ), ExtResource( 92 ), ExtResource( 124 ), ExtResource( 140 ), ExtResource( 141 ), ExtResource( 142 ), ExtResource( 143 ), ExtResource( 125 ), ExtResource( 128 ), ExtResource( 129 ), ExtResource( 130 ), ExtResource( 131 ), ExtResource( 144 ), ExtResource( 96 ), ExtResource( 98 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 121 ), ExtResource( 122 ), ExtResource( 150 ), ExtResource( 146 ), ExtResource( 149 ), ExtResource( 147 ), ExtResource( 145 ), ExtResource( 148 ), ExtResource( 190 ), ExtResource( 191 ), ExtResource( 172 ), ExtResource( 153 ), ExtResource( 205 ), ExtResource( 173 ), ExtResource( 200 ), ExtResource( 154 ), ExtResource( 176 ), ExtResource( 181 ), ExtResource( 193 ), ExtResource( 223 ), ExtResource( 168 ), ExtResource( 211 ), ExtResource( 158 ), ExtResource( 212 ), ExtResource( 155 ), ExtResource( 213 ), ExtResource( 206 ), ExtResource( 167 ), ExtResource( 208 ), ExtResource( 220 ), ExtResource( 163 ), ExtResource( 161 ), ExtResource( 174 ), ExtResource( 156 ), ExtResource( 222 ), ExtResource( 175 ), ExtResource( 184 ), ExtResource( 157 ), ExtResource( 189 ), ExtResource( 207 ), ExtResource( 210 ), ExtResource( 151 ), ExtResource( 159 ), ExtResource( 152 ), ExtResource( 197 ), ExtResource( 221 ), ExtResource( 162 ), ExtResource( 204 ), ExtResource( 192 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="OpenSimplexNoise" id=47]
+period = 0.1
+
+[sub_resource type="NoiseTexture" id=48]
+noise = SubResource( 47 )
+
+[sub_resource type="OpenSimplexNoise" id=49]
+period = 10.0
+
+[sub_resource type="NoiseTexture" id=50]
+noise = SubResource( 49 )
+
+[sub_resource type="ShaderMaterial" id=51]
+resource_local_to_scene = true
+shader = ExtResource( 6 )
+shader_param/addBrightness = 0.0
+shader_param/brightnessThres = 0.165
+shader_param/transparency = 0.0
+shader_param/distortion = 0.0
+shader_param/distortMapX = SubResource( 48 )
+shader_param/distortMapY = SubResource( 50 )
+
+[sub_resource type="SpriteFrames" id=22]
+animations = [ {
+"frames": [ ExtResource( 178 ), ExtResource( 209 ), ExtResource( 179 ), ExtResource( 171 ), ExtResource( 203 ), ExtResource( 180 ), ExtResource( 183 ), ExtResource( 186 ), ExtResource( 187 ), ExtResource( 194 ), ExtResource( 198 ), ExtResource( 195 ), ExtResource( 214 ), ExtResource( 215 ), ExtResource( 199 ), ExtResource( 218 ), ExtResource( 216 ), ExtResource( 160 ), ExtResource( 201 ), ExtResource( 202 ), ExtResource( 217 ), ExtResource( 219 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Idle:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Latched:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Fleeing:modulate:r")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Fleeing:modulate:g")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Fleeing:modulate:b")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Fleeing:modulate:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Fleeing:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Fleeing:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Idle:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("FleeingEyes:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Attacking:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Latched:frame")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Fleeing:frame")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("FleeingEyes:frame")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("FleeingEyes:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Attacking:frame")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Audio_Latched_on:playing")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Idle2:pitch_scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( -2 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Audio_Hit_Flare:volume_db")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -80.0 ]
+}
+
+[sub_resource type="Animation" id=29]
+resource_name = "attacking"
+length = 0.88
+loop = true
+step = 0.04
+tracks/0/type = "value"
+tracks/0/path = NodePath("Idle:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Latched:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Fleeing:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("FleeingEyes:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Attacking:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Attacking:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.04, 0.08, 0.12, 0.16, 0.2, 0.24, 0.28, 0.32, 0.36, 0.4, 0.44, 0.48, 0.52, 0.56, 0.6, 0.64, 0.68, 0.72, 0.76, 0.8, 0.84 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Idle2:pitch_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( -2 ),
+"update": 0,
+"values": [ 2.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Audio_Hit_Flare:volume_db")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -80.0 ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "fleeing"
+length = 1.6
+loop = true
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("Idle:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Latched:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Fleeing:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("FleeingEyes:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Attacking:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("FleeingEyes:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.8, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1.19209e-07 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Fleeing:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.02, 0.04, 0.06, 0.08, 0.1, 0.12, 0.14, 0.16, 0.18, 0.2, 0.22, 0.24, 0.26, 0.28, 0.3, 0.32, 0.34, 0.36, 0.38, 0.4, 0.42, 0.44, 0.46, 0.48, 0.5, 0.52, 0.54, 0.56, 0.58, 0.6, 0.62, 0.64, 0.66, 0.68, 0.7, 0.72, 0.74, 0.76, 0.78, 0.8, 0.82, 0.84, 0.86, 0.88, 0.9, 0.92, 0.94, 0.96, 0.98, 1, 1.02, 1.04, 1.06, 1.08, 1.1, 1.12, 1.14, 1.16, 1.18, 1.2, 1.22, 1.24, 1.26, 1.28, 1.3, 1.32, 1.34, 1.36, 1.38, 1.4, 1.42, 1.44, 1.46, 1.48, 1.5, 1.52, 1.54, 1.56, 1.58 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("FleeingEyes:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.02, 0.04, 0.06, 0.08, 0.1, 0.12, 0.14, 0.16, 0.18, 0.2, 0.22, 0.24, 0.26, 0.28, 0.3, 0.32, 0.34, 0.36, 0.38, 0.4, 0.42, 0.44, 0.46, 0.48, 0.5, 0.52, 0.54, 0.56, 0.58, 0.6, 0.62, 0.64, 0.66, 0.68, 0.7, 0.72, 0.74, 0.76, 0.78, 0.8, 0.82, 0.84, 0.86, 0.88, 0.9, 0.92, 0.94, 0.96, 0.98, 1, 1.02, 1.04, 1.06, 1.08, 1.1, 1.12, 1.14, 1.16, 1.18, 1.2, 1.22, 1.24, 1.26, 1.28, 1.3, 1.32, 1.34, 1.36, 1.38, 1.4, 1.42, 1.44, 1.46, 1.48, 1.5, 1.52, 1.54, 1.56, 1.58 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Idle2:pitch_scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( -2 ),
+"update": 0,
+"values": [ 0.8 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Audio_Latched_on:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( -2 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Audio_Hit_Flare:volume_db")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( -2 ),
+"update": 0,
+"values": [ -15.0 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "idle"
+length = 3.2
+loop = true
+step = 0.04
+tracks/0/type = "value"
+tracks/0/path = NodePath("Idle:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Idle:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.04, 0.08, 0.12, 0.16, 0.2, 0.24, 0.28, 0.32, 0.36, 0.4, 0.44, 0.48, 0.52, 0.56, 0.6, 0.64, 0.68, 0.72, 0.76, 0.8, 0.84, 0.88, 0.92, 0.96, 1, 1.04, 1.08, 1.12, 1.16, 1.2, 1.24, 1.28, 1.32, 1.36, 1.4, 1.44, 1.48, 1.52, 1.56, 1.6, 1.64, 1.68, 1.72, 1.76, 1.8, 1.84, 1.88, 1.92, 1.96, 2, 2.04, 2.08, 2.12, 2.16, 2.2, 2.24, 2.28, 2.32, 2.36, 2.4, 2.44, 2.48, 2.52, 2.56, 2.6, 2.64, 2.68, 2.72, 2.76, 2.8, 2.84, 2.88, 2.92, 2.96, 3, 3.04, 3.08, 3.12, 3.16 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Latched:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Fleeing:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("FleeingEyes:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Attacking:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Idle2:pitch_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( -2 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Audio_Latched_on:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( -2 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Audio_Hit_Flare:volume_db")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( -2 ),
+"update": 0,
+"values": [ -80.0 ]
+}
+
+[sub_resource type="Animation" id=27]
+resource_name = "latched"
+length = 0.92
+loop = true
+step = 0.04
+tracks/0/type = "value"
+tracks/0/path = NodePath("Idle:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Latched:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Fleeing:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("FleeingEyes:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Attacking:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Latched:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.04, 0.08, 0.12, 0.16, 0.2, 0.24, 0.28, 0.32, 0.36, 0.4, 0.44, 0.48, 0.52, 0.56, 0.6, 0.64, 0.68, 0.72, 0.76, 0.8, 0.84, 0.88 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Audio_Hit_Flare:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Audio_Latched_on:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 2 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Idle2:pitch_scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( -2 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Audio_Hit_Flare:volume_db")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( -2 ),
+"update": 0,
+"values": [ -80.0 ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "recover"
+length = 3.2
+loop = true
+step = 0.04
+tracks/0/type = "value"
+tracks/0/path = NodePath("Idle:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Latched:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Fleeing:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("FleeingEyes:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Attacking:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Audio_Latched_on:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 0.5 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Idle2:pitch_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( -2 ),
+"update": 0,
+"values": [ 0.8 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Audio_Hit_Flare:volume_db")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( -2 ),
+"update": 0,
+"values": [ -15.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Idle:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.04, 0.08, 0.12, 0.16, 0.2, 0.24, 0.28, 0.32, 0.36, 0.4, 0.44, 0.48, 0.52, 0.56, 0.6, 0.64, 0.68, 0.72, 0.76, 0.8, 0.84, 0.88, 0.92, 0.96, 1, 1.04, 1.08, 1.12, 1.16, 1.2, 1.24, 1.28, 1.32, 1.36, 1.4, 1.44, 1.48, 1.52, 1.56, 1.6, 1.64, 1.68, 1.72, 1.76, 1.8, 1.84, 1.88, 1.92, 1.96, 2, 2.04, 2.08, 2.12, 2.16, 2.2, 2.24, 2.28, 2.32, 2.36, 2.4, 2.44, 2.48, 2.52, 2.56, 2.6, 2.64, 2.68, 2.72, 2.76, 2.8, 2.84, 2.88, 2.92, 2.96, 3, 3.04, 3.08, 3.12, 3.16 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79 ]
+}
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 44, 59 )
+
+[node name="EnemyClamp" type="KinematicBody2D"]
+scale = Vector2( 0.5, 0.5 )
+z_index = 3
+collision_layer = 4
+collision_mask = 2
+script = ExtResource( 2 )
+rayCastTemplate = ExtResource( 3 )
+recoveringSpeed = 140.0
+idleSpeed = 100.0
+fleeSpeed = 220.0
+fleeDur = 1.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 0, -82, -28, -64, -38, -36, -36, -14, -24, 26, 2, 30, 20, 28, 30, 10, 30, -6, 28, -26, 30, -52, 18, -72 )
+
+[node name="Path2D" type="Path2D" parent="."]
+show_behind_parent = true
+curve = SubResource( 5 )
+
+[node name="RayCastMid" type="RayCast2D" parent="."]
+cast_to = Vector2( 0, -130 )
+collision_mask = 262
+script = ExtResource( 5 )
+
+[node name="RayCast2DTurn" type="RayCast2D" parent="."]
+cast_to = Vector2( 0, 0 )
+collision_mask = 262
+
+[node name="RayCast2DLeft" type="RayCast2D" parent="."]
+cast_to = Vector2( -64, -98 )
+
+[node name="RayCast2DRight" type="RayCast2D" parent="."]
+cast_to = Vector2( 60, -96 )
+
+[node name="Latched" type="AnimatedSprite" parent="."]
+visible = false
+material = SubResource( 32 )
+rotation = 3.14159
+frames = SubResource( 8 )
+
+[node name="Idle" type="AnimatedSprite" parent="."]
+material = SubResource( 35 )
+rotation = 3.14159
+frames = SubResource( 9 )
+animation = "normal"
+
+[node name="Fleeing" type="AnimatedSprite" parent="."]
+visible = false
+material = SubResource( 46 )
+rotation = 3.14159
+frames = SubResource( 7 )
+animation = "fleeing"
+
+[node name="FleeingEyes" type="AnimatedSprite" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 58 )
+rotation = 3.14159
+frames = SubResource( 21 )
+
+[node name="Attacking" type="AnimatedSprite" parent="."]
+visible = false
+material = SubResource( 51 )
+rotation = 3.14159
+frames = SubResource( 22 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/RESET = SubResource( 10 )
+anims/attacking = SubResource( 29 )
+anims/fleeing = SubResource( 26 )
+anims/idle = SubResource( 13 )
+anims/latched = SubResource( 27 )
+anims/recover = SubResource( 30 )
+
+[node name="CheckForRadiusCollision" type="Area2D" parent="."]
+position = Vector2( -2, -24 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckForRadiusCollision"]
+position = Vector2( -2, -1 )
+shape = SubResource( 17 )
+
+[node name="Idle2" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2( 2, 2 )
+stream = ExtResource( 4 )
+volume_db = -10.0
+autoplay = true
+max_distance = 800.0
+attenuation = 2.0
+bus = "Feedback"
+
+[node name="Audio_Hit_Flare" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2( 2, 2 )
+stream = ExtResource( 9 )
+volume_db = -80.0
+max_distance = 500.0
+attenuation = 2.0
+bus = "Feedback"
+
+[node name="Audio_Latched_on" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 89 )
+volume_db = -5.0
+pitch_scale = 2.5
+bus = "Feedback"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

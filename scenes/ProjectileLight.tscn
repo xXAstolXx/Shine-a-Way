@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/placeholder/flare_light_placeholder_01.png" type="Texture" id=1]
+
+[node name="ProjectileLight" type="Light2D"]
+texture = ExtResource( 1 )

@@ -1,0 +1,379 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://scripts/Drone.gd" type="Script" id=1]
+[ext_resource path="res://scenes/MFLaser.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/drone/Drone_back.png" type="Texture" id=3]
+[ext_resource path="res://other/particle_effects/drone.tres" type="Material" id=4]
+[ext_resource path="res://assets/sfx/player_drone/sfx_drone_servo_ice_lense_04.mp3" type="AudioStream" id=5]
+[ext_resource path="res://assets/sfx/player_drone/sfx_flare_no_charge.mp3" type="AudioStream" id=6]
+[ext_resource path="res://assets/drone/Drone_front.png" type="Texture" id=7]
+[ext_resource path="res://assets/drone/Drone_empty.png" type="Texture" id=8]
+[ext_resource path="res://other/shader/EnergyBar.gdshader" type="Shader" id=9]
+[ext_resource path="res://assets/Ambient/particles/trace_01.png" type="Texture" id=10]
+[ext_resource path="res://other/color_gradients/FlairParticles.tres" type="Gradient" id=11]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+render_mode blend_add;
+
+uniform float value: hint_range(0, 100); // %
+uniform float thickness: hint_range(0, 100) = 30.; // % thickness
+uniform sampler2D fg: hint_albedo;
+uniform sampler2D bg: hint_albedo;
+uniform float offset: hint_range(0, 100); // %
+uniform float smoothing: hint_range(0, 100) = 5.;
+
+void fragment() {
+	vec2 point = UV - vec2(0.5);
+	float PI = 3.14159265358979323846;
+	float ang = (1. - atan(point.x, point.y) / PI) * 50. - offset;
+	if (ang < 0.)
+		ang += 100.;
+	float s = smoothing / 1000.;
+	float k = PI / 2. / s;
+	float r1 = .5 - thickness / 200.;
+	float r2 = .5;
+	float r = length(point);
+	float uy = (r2 - r) / (r2 - r1);
+	if (r > r2 || r < r1)
+		COLOR.a = 0.;
+	else {
+		if (ang <= value) 
+			COLOR = texture(fg, vec2(ang / 100., uy));
+		else
+			COLOR = texture(bg, vec2(ang / 100., uy));
+		if ((r2 - r) < s)
+			COLOR.a = sin((r2 - r) * k);
+		if ((r - r1) < s)
+			COLOR.a = sin((r - r1) * k);
+	}
+}"
+
+[sub_resource type="Gradient" id=5]
+colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.0754717, 0.150943, 0.682353 )
+colors = PoolColorArray( 1, 0, 0, 1, 0.946777, 0.825924, 0.214504, 1, 0.0328674, 0.701172, 0.113795, 1 )
+
+[sub_resource type="GradientTexture2D" id=3]
+gradient = SubResource( 2 )
+fill_from = Vector2( 0, 0.5 )
+fill_to = Vector2( 1, 0.51113 )
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 1 )
+shader_param/value = 100.0
+shader_param/thickness = 30.468
+shader_param/offset = 75.0
+shader_param/smoothing = 5.0
+shader_param/fg = SubResource( 3 )
+shader_param/bg = SubResource( 6 )
+
+[sub_resource type="CircleShape2D" id=7]
+radius = 8.0
+
+[sub_resource type="Gradient" id=9]
+offsets = PoolRealArray( 0, 0.375, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture2D" id=8]
+gradient = SubResource( 9 )
+fill = 1
+fill_from = Vector2( 0.5, 0.5 )
+fill_to = Vector2( 1, 0.491667 )
+
+[sub_resource type="Gradient" id=17]
+offsets = PoolRealArray( 0 )
+colors = PoolColorArray( 0.0776291, 0.736081, 0.794922, 1 )
+
+[sub_resource type="GradientTexture2D" id=18]
+gradient = SubResource( 17 )
+fill_from = Vector2( 0, 0.5 )
+fill_to = Vector2( 1, 0.48895 )
+
+[sub_resource type="Gradient" id=20]
+offsets = PoolRealArray( 0 )
+colors = PoolColorArray( 0.0208969, 0.21321, 0.243164, 1 )
+
+[sub_resource type="GradientTexture2D" id=21]
+gradient = SubResource( 20 )
+fill_from = Vector2( 0, 0.501381 )
+fill_to = Vector2( 1, 0.53453 )
+
+[sub_resource type="ShaderMaterial" id=19]
+shader = ExtResource( 9 )
+shader_param/addBrightness = 3.0
+shader_param/startUV = 0.4
+shader_param/endUV = 0.8
+shader_param/topUV = 0.4
+shader_param/botUV = 0.6
+shader_param/energy = 39.0
+shader_param/maxEnergy = 100.0
+shader_param/colorGradient = SubResource( 18 )
+shader_param/emptyColor = SubResource( 21 )
+
+[sub_resource type="CanvasItemMaterial" id=15]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="Animation" id=22]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:orbit_velocity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D:process_material:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Particles2D:process_material:color_ramp:gradient")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 11 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Particles2D:process_material:linear_accel")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Particles2D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Particles2D:lifetime")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.5 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Particles2D:amount")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 80 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Particles2D:process_material:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.25 ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "picked"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.960784, 0.639216, 0.137255, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D:process_material:linear_accel")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 100.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Particles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Particles2D:amount")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 400 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Particles2D:process_material:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.25, 0.5 ]
+}
+
+[node name="Drone" type="KinematicBody2D"]
+collision_layer = 128
+collision_mask = 0
+script = ExtResource( 1 )
+energy = 50.0
+energyPerSec = 30.0
+energyPerSecReg = 20.0
+speed = 350.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource( 4 )
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 7 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = SubResource( 8 )
+energy = 0.7
+mode = 2
+range_height = 100.0
+
+[node name="MFLaser" parent="." instance=ExtResource( 2 )]
+
+[node name="DroneBack" type="Sprite" parent="."]
+scale = Vector2( 0.062, 0.062 )
+z_index = 1
+texture = ExtResource( 3 )
+
+[node name="Position2D" type="Position2D" parent="DroneBack"]
+position = Vector2( 0, -260 )
+
+[node name="Drone" type="Sprite" parent="."]
+scale = Vector2( 0.065, 0.065 )
+z_index = 1
+texture = ExtResource( 7 )
+
+[node name="EnergyBar" type="Sprite" parent="."]
+modulate = Color( 0.211765, 0.615686, 0.752941, 1 )
+material = SubResource( 19 )
+position = Vector2( 0, -9.53674e-07 )
+scale = Vector2( 0.065, 0.065 )
+z_index = 1
+texture = ExtResource( 8 )
+
+[node name="LeftCheck" type="Position2D" parent="EnergyBar"]
+position = Vector2( -106.836, -18.4911 )
+scale = Vector2( 20, 20 )
+
+[node name="RightCheck" type="Position2D" parent="EnergyBar"]
+position = Vector2( 215.647, -3.82652 )
+scale = Vector2( 20, 20 )
+
+[node name="TopCheck" type="Position2D" parent="EnergyBar"]
+position = Vector2( -0.393724, -83.076 )
+
+[node name="BotCheck" type="Position2D" parent="EnergyBar"]
+position = Vector2( -0.590591, 45.4753 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+material = SubResource( 15 )
+position = Vector2( 0, 12 )
+z_index = 1
+amount = 80
+lifetime = 1.5
+randomness = 0.42
+visibility_rect = Rect2( 0, 0, 0, 0 )
+process_material = ExtResource( 4 )
+texture = ExtResource( 10 )
+
+[node name="Audio_Hover" type="AudioStreamPlayer2D" parent="."]
+bus = "Ambient"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Audio_Picked" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = -5.0
+bus = "Feedback"
+
+[node name="Audio_No_Energy" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+bus = "Feedback"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 22 )
+anims/picked = SubResource( 24 )

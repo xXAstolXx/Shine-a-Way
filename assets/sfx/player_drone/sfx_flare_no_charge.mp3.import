@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sfx_flare_no_charge.mp3-7a804f905837f4643bd0aa9e690a588b.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/player_drone/sfx_flare_no_charge.mp3"
+dest_files=[ "res://.import/sfx_flare_no_charge.mp3-7a804f905837f4643bd0aa9e690a588b.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

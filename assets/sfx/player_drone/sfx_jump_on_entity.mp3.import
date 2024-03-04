@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sfx_jump_on_entity.mp3-5e1fe9b18c2b7f6bb99ce859a83ed0a6.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/player_drone/sfx_jump_on_entity.mp3"
+dest_files=[ "res://.import/sfx_jump_on_entity.mp3-5e1fe9b18c2b7f6bb99ce859a83ed0a6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,12 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/LightSpawner.gd" type="Script" id=1]
+[ext_resource path="res://scenes/FlairProjectile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/LightFlair.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/MFLaser.tscn" type="PackedScene" id=4]
+
+[node name="LightSpawner" type="Node2D"]
+script = ExtResource( 1 )
+flairProjectileTemplate = ExtResource( 2 )
+lightFlairTemplate = ExtResource( 3 )
+laserTemplate = ExtResource( 4 )

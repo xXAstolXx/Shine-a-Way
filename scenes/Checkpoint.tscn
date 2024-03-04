@@ -1,0 +1,228 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/level/Checkpoint/Checkpoint_Broken.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Checkpoint.gd" type="Script" id=2]
+[ext_resource path="res://assets/sfx/test_sound/sfx_menu_click_reverb.mp3" type="AudioStream" id=3]
+[ext_resource path="res://assets/level/Checkpoint/Checkpoint_Activated.png" type="Texture" id=4]
+[ext_resource path="res://assets/level/enviorment_light/Lamp_Flat.png" type="Texture" id=5]
+[ext_resource path="res://assets/level/Checkpoint/Checkpoint_Broken_Background.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 36, 36 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LampSprite/Light2D:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.494118, 0.494118, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("LampSprite/Light2D:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("LampSprite:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Front:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 11, 20 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Front:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 34.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "activate once"
+length = 2.0
+tracks/0/type = "audio"
+tracks/0/path = NodePath("AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [  ],
+"times": PoolRealArray(  )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.28 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("LampSprite/Light2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 2 ),
+"update": 0,
+"values": [ Color( 1, 0.494118, 0.494118, 1 ), Color( 0.533333, 1, 0.494118, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("LampSprite:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 0.0784314, 1, 0, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Front:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 0.5 ),
+"update": 0,
+"values": [ Vector2( 11, 20 ), Vector2( 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Front:rotation_degrees")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 0.5 ),
+"update": 0,
+"values": [ 34.0, 0.0 ]
+}
+
+[sub_resource type="Gradient" id=4]
+colors = PoolColorArray( 1, 1, 1, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture2D" id=5]
+gradient = SubResource( 4 )
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2( 0.5, 0.5 )
+fill_to = Vector2( 1, 0.5 )
+
+[node name="Checkpoint" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="Background" type="Sprite" parent="."]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 6 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+visible = false
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 3 )
+"anims/activate once" = SubResource( 2 )
+__meta__ = {
+"_editor_description_": "bugged. it is activating permanently
+"
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+bus = "Feedback"
+
+[node name="LampSprite" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 0, -59.119 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 5 )
+
+[node name="Light2D" type="Light2D" parent="LampSprite"]
+scale = Vector2( 6.66667, 6.66667 )
+texture = SubResource( 5 )
+texture_scale = 2.0
+color = Color( 1, 0.494118, 0.494118, 1 )
+
+[node name="Front" type="Sprite" parent="."]
+position = Vector2( 11, 20 )
+rotation = 0.593412
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 4 )
+
+[connection signal="body_entered" from="." to="." method="_on_Checkpoint_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Checkpoint_body_exited"]

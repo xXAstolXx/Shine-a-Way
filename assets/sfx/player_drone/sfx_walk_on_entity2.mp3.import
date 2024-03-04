@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sfx_walk_on_entity2.mp3-e69dd8919bf562dc392a1e763c40f0dc.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/player_drone/sfx_walk_on_entity2.mp3"
+dest_files=[ "res://.import/sfx_walk_on_entity2.mp3-e69dd8919bf562dc392a1e763c40f0dc.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

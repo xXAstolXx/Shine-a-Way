@@ -1,0 +1,26 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+uniform vec4 c: hint_color;
+
+void fragment(){
+	float maxEdge = 0.15;
+	float maxWidth = (1.0-2.0*maxEdge);
+	float edgeThickness = UV.y*maxEdge;
+	float result = abs(UV.x-0.5) - (maxWidth*UV.y*0.5);
+	
+	if(result > 0.0 && result < edgeThickness){
+		COLOR = vec4(c.r, c.g, c.b, (1.0-UV.y)*(1.0-(result*(1.0/edgeThickness))))
+	}
+	if(result <= 0.0){
+		COLOR = vec4(c.r, c.g, c.b, 1.0-UV.y)
+	}
+	if(result >= edgeThickness){
+		COLOR = vec4(c.r, c.g, c.b, 0.0)
+	}
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/c = Color( 0.980392, 0.905882, 0.74902, 1 )

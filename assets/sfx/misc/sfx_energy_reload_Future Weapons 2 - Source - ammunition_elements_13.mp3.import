@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sfx_energy_reload_Future Weapons 2 - Source - ammunition_elements_13.mp3-0fdd43621d84c80ef6d52c95e48a85a4.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/misc/sfx_energy_reload_Future Weapons 2 - Source - ammunition_elements_13.mp3"
+dest_files=[ "res://.import/sfx_energy_reload_Future Weapons 2 - Source - ammunition_elements_13.mp3-0fdd43621d84c80ef6d52c95e48a85a4.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

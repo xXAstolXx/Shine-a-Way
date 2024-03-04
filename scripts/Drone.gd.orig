@@ -1,0 +1,133 @@
+extends KinematicBody2D
+
+var cursor = load("res://assets/placeholder/cursor_placeholder.png")
+export (float) var energy = 100
+export (float) var energyPerSec = 10
+export (float) var energyPerSecReg = 5
+export (float) var energyInitKill = 5
+export (float) var speed = 100
+export (float) var idleSpeed = 50
+export (float) var startChaseLength = 100
+var idleRadius = 100
+var slowingSpeed
+var isLoading = false
+var droneArea = null
+var chasing = false
+var path
+var nextPosition
+var nextPositionLocal
+var radiusDroneArea
+var normal
+var startPos
+
+onready var nav: Navigation2D = get_node("../Navigation2D")
+
+
+func _ready():
+	slowingSpeed = speed
+	Input.set_custom_mouse_cursor(cursor, 0, Vector2( 32, 32 ))
+	startPos = global_position
+	
+func _process(delta):
+	if droneArea != null:
+		if Input.is_action_just_pressed("Right"):
+			$Sprite.flip_h = false
+			$Position2D.position.x = 16
+		if Input.is_action_just_pressed("Left"):
+			$Sprite.flip_h = true
+			$Position2D.position.x = -16
+		
+		if energy < 100 && !Input.is_action_pressed("Mouse_Left"):
+			energy += energyPerSecReg * delta
+			if energy > 100:
+				energy = 100
+		if Input.is_action_pressed("Mouse_Left") && energy > 0:
+			if Input.is_action_just_pressed("Mouse_Left"):
+				energy -= energyInitKill
+				$Position2D/MFLaser.startLight()
+			
+			#print(energy)
+			energy -= delta * energyPerSec
+			if energy < 0:
+				energy = 0
+		if Input.is_action_just_released("Mouse_Left") || energy == 0:
+			$Position2D/MFLaser.stopLight()
+		$ColorRect.material.set_shader_param("value", energy)
+
+
+func _physics_process(delta):
+	if droneArea == null:
+<<<<<<< working copy
+		pass
+=======
+		idleMovement(delta)
+>>>>>>> merge rev
+	elif chasing == true:
+		move(delta)
+	else:
+		if (droneArea.global_position - global_position).length() >= startChaseLength:
+			chasing = true
+			slowingSpeed = speed
+		if global_position != nextPosition:
+			global_position = global_position.move_toward(nextPosition, delta * slowingSpeed)
+			slowingSpeed *= 0.95
+	
+	
+func stopChase():
+	if droneArea != null:
+		print("stop chasing drone area")
+		chasing = false
+		randomTarget()
+	
+	
+	
+func move(delta):
+	path = nav.get_simple_path(global_position, droneArea.global_position, true)
+	nextPosition = path[1] - global_position
+	move_and_collide(nextPosition.normalized() * speed * delta)
+	
+
+	
+func randomTarget():
+	randomize()
+	var angle = rad2deg(rand_range(0,2*PI))
+	
+	if angle >= 0 && angle < 90:
+		normal = Vector2(sin(deg2rad(angle)),-cos(deg2rad(angle)))
+	elif angle >= 90 && angle < 180:
+		normal = Vector2(cos(deg2rad(angle-90)),sin(deg2rad(angle-90)))
+	elif angle >= 180 && angle < 270:
+		normal = Vector2(-sin(deg2rad(angle-180)),cos(deg2rad(angle-180)))
+	elif angle >= 270 && angle < 360:
+		normal = Vector2(-cos(deg2rad(angle-270)),-sin(deg2rad(angle-270)))
+	#randomized local target position from the current drone position
+	nextPosition = (normal * 0.75 * radiusDroneArea) + droneArea.global_position
+
+
+func picked(player):
+	droneArea = player.droneArea
+	nextPosition = droneArea.global_position
+	radiusDroneArea = droneArea.get_node("CollisionShape2D").shape.radius
+	
+	
+func idleMovement(delta):
+	var toCenter = false
+	if global_position == startPos:
+		randomize()
+		var angle = rad2deg(rand_range(0,2*PI))
+		var length = idleRadius*rand_range(0,1)
+		
+		if angle >= 0 && angle < 90:
+			normal = Vector2(sin(deg2rad(angle)),-cos(deg2rad(angle)))
+		elif angle >= 90 && angle < 180:
+			normal = Vector2(cos(deg2rad(angle-90)),sin(deg2rad(angle-90)))
+		elif angle >= 180 && angle < 270:
+			normal = Vector2(-sin(deg2rad(angle-180)),cos(deg2rad(angle-180)))
+		elif angle >= 270 && angle < 360:
+			normal = Vector2(-cos(deg2rad(angle-270)),-sin(deg2rad(angle-270)))
+		nextPosition = length*normal + global_position
+		print(nextPosition)
+	elif global_position == nextPosition:
+		nextPosition = startPos
+	global_position = global_position.move_toward(nextPosition, delta * idleSpeed)
+	

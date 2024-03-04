@@ -1,0 +1,33 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=16]
+code = "shader_type canvas_item;
+render_mode blend_add;
+
+uniform float lightPower: hint_range(1.0, 100.0) = 1.0;
+
+void fragment(){
+	float maxEdge = 0.15;
+	float maxWidth = (1.0-2.0*maxEdge);
+	float edgeThickness = UV.y*maxEdge;
+	float result = abs(UV.x-0.5) - (maxWidth*UV.y*0.5);
+	float edgeDecrease = 1.0 - (result*(1.0/edgeThickness));
+	
+	vec4 c = textureLod(SCREEN_TEXTURE, SCREEN_UV, 0.0); 
+	
+	if(!AT_LIGHT_PASS){
+		if(result > 0.0 && result < edgeThickness){
+			COLOR = vec4(c.r*lightPower, c.g*lightPower, c.b*lightPower, c.a*(1.0-UV.y)*(1.0-(result*(1.0/edgeThickness))))
+		}
+		if(result <= 0.0){
+			COLOR = vec4(c.r*lightPower, c.g*lightPower, c.b*lightPower, c.a*(1.0-UV.y))
+		}
+		if(result >= edgeThickness){
+		COLOR = vec4(c.r, c.g, c.b, 0.0)
+		}
+	}
+}"
+
+[resource]
+shader = SubResource( 16 )
+shader_param/lightPower = 6.372

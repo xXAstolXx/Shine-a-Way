@@ -1,0 +1,11 @@
+[gd_resource type="Curve2D" format=2]
+
+[resource]
+resource_local_to_scene = true
+_data = {
+<<<<<<< working copy
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, -464 )
+=======
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 80, -97, 0, 0, 0, 0, -81, -139, 0, 0, 0, 0, 0, -320, 0, 0, 0, 0, 103, -371 )
+>>>>>>> destination
+}

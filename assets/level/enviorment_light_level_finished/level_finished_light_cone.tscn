@@ -1,0 +1,115 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/placeholder/background_wall_grey_placeholder.png" type="Texture" id=2]
+[ext_resource path="res://assets/placeholder/coneHead_for_wall.png" type="Texture" id=3]
+[ext_resource path="res://scripts/level_finished_light.gd" type="Script" id=4]
+
+[sub_resource type="Gradient" id=1]
+interpolation_mode = 2
+colors = PoolColorArray( 1, 1, 1, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture2D" id=2]
+gradient = SubResource( 1 )
+width = 1400
+height = 300
+fill = 1
+fill_from = Vector2( 0.5, 0.5 )
+fill_to = Vector2( 1, 0.5 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Level Finished Lighting"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D_initial:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.7, 1 ),
+"transitions": PoolRealArray( 1, -2, 1, -2 ),
+"update": 0,
+"values": [ 0.0, 0.6, 0.2, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D_beam:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.7, 1 ),
+"transitions": PoolRealArray( 1, -2, 1, -2 ),
+"update": 0,
+"values": [ 0.0, 0.6, 0.2, 1.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D_initial:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D_beam:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Light2D_initial:texture_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.2 ]
+}
+
+[node name="level_finished_light_cone" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Placeholder_Polygon2D" type="Polygon2D" parent="."]
+polygon = PoolVector2Array( -96, 0, -88, 8, 88, 8, 96, 0, 88, -8, -88, -8 )
+
+[node name="Light2D_beam" type="Light2D" parent="."]
+scale = Vector2( 10, 3 )
+texture = ExtResource( 3 )
+offset = Vector2( 0, 100 )
+texture_scale = 0.1
+energy = 0.0
+
+[node name="Light2D_initial" type="Light2D" parent="."]
+texture = SubResource( 2 )
+texture_scale = 0.2
+energy = 0.0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color( 0, 0, 0, 1 )
+
+[node name="testsprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( -2.00001, 116 )
+scale = Vector2( 2.02375, 1.27333 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Level Finished Lighting" = SubResource( 3 )
+anims/RESET = SubResource( 4 )

@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/placeholder/coneHead_for_wall.png" type="Texture" id=1]
+[ext_resource path="res://assets/placeholder/background_wall_grey_placeholder.png" type="Texture" id=2]
+[ext_resource path="res://assets/sfx/ambient/388787__thatmisfit__spooky-light.mp3" type="AudioStream" id=3]
+[ext_resource path="res://scripts/flickering_light.gd" type="Script" id=4]
+[ext_resource path="res://assets/level/enviorment_light/Lamp_Flat.png" type="Texture" id=5]
+
+[sub_resource type="Gradient" id=7]
+interpolation_mode = 2
+offsets = PoolRealArray( 0, 0.302752, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.392157, 0.392157, 0.392157, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture2D" id=8]
+gradient = SubResource( 7 )
+fill = 1
+fill_from = Vector2( 0.5, 0.5 )
+fill_to = Vector2( 1, 0.5 )
+
+[node name="constant_light_cone" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="testsprite" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+rotation = 1.5708
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 5 )
+
+[node name="Light2D" type="Light2D" parent="."]
+scale = Vector2( 1.5, 2 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, 100 )
+texture_scale = 0.1
+
+[node name="Placeholder_Polygon2D" type="Polygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -16, 0, 16, 0, 8, 8, -8, 8 )
+
+[node name="AudioBuzzing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -10.0
+autoplay = true
+max_distance = 700.0
+
+[node name="ownGlow" type="Light2D" parent="."]
+scale = Vector2( 1.5, 1.25 )
+texture = SubResource( 8 )
+offset = Vector2( 0, 5 )

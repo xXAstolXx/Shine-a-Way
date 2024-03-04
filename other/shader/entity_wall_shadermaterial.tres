@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=2]
+
+[ext_resource path="res://other/shader/entity_wall_shader.tres" type="Shader" id=1]
+[ext_resource path="res://other/noise_textures/enemy_platform_distortion_x.tres" type="Texture" id=7]
+[ext_resource path="res://other/noise_textures/enemy_platform_distortion_y.tres" type="Texture" id=8]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource( 1 )
+shader_param/addBrightness = 0.0
+shader_param/brightnessThres = 0.274
+shader_param/transparencyG = 0.0
+shader_param/afterGlow = true
+shader_param/transparency = 0.0
+shader_param/distortion = 0.0
+shader_param/distortMapX = ExtResource( 7 )
+shader_param/distortMapY = ExtResource( 8 )

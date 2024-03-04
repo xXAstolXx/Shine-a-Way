@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://other/particle_effects/many_one_direction.tres" type="Material" id=1]
+[ext_resource path="res://assets/Ambient/particles/spark_non_symmetric.png" type="Texture" id=2]
+[ext_resource path="res://other/particle_effects/line.tres" type="Material" id=3]
+[ext_resource path="res://other/particle_effects/electric_air.tres" type="Material" id=4]
+[ext_resource path="res://assets/Ambient/particles/spark_02.png" type="Texture" id=5]
+
+[sub_resource type="CanvasItemMaterial" id=6]
+light_mode = 1
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.227273 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+flag_disable_z = true
+direction = Vector3( 0, 1, 0 )
+spread = 180.0
+flatness = 1.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 89.11
+initial_velocity_random = 0.26
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = -100.0
+scale = 0.02
+scale_curve = SubResource( 2 )
+color = Color( 0.917647, 0.839216, 0.462745, 1 )
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.54386 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture2D" id=5]
+gradient = SubResource( 4 )
+fill = 1
+fill_from = Vector2( 0.543103, 0.517241 )
+
+[node name="SparkTypes" type="Node2D"]
+
+[node name="Particles2D" type="Particles2D" parent="."]
+visible = false
+material = SubResource( 6 )
+amount = 100
+lifetime = 0.5
+process_material = ExtResource( 1 )
+texture = ExtResource( 2 )
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Line" type="Particles2D" parent="Node"]
+visible = false
+lifetime = 0.5
+process_material = ExtResource( 3 )
+texture = ExtResource( 2 )
+
+[node name="Circle" type="Particles2D" parent="Node"]
+visible = false
+amount = 100
+lifetime = 0.5
+explosiveness = 0.5
+process_material = SubResource( 3 )
+texture = SubResource( 5 )
+
+[node name="Node2" type="Node" parent="."]
+
+[node name="ElectricAir" type="Particles2D" parent="Node2"]
+amount = 5
+lifetime = 0.5
+process_material = ExtResource( 4 )
+texture = ExtResource( 5 )

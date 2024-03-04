@@ -1,0 +1,5 @@
+[gd_resource type="StreamTexture" format=2]
+
+[resource]
+flags = 4
+load_path = "res://.import/Broken.png-1d2194b8c33adb59064682394f1bb815.stex"
