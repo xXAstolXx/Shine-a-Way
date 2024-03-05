@@ -9,5 +9,10 @@ As an electrician you just want to do your job: fix the light. <br> But experime
 - 3 unique handcrafted Level
 - an Interessting Story narrated through the Level
 ## Responsibilities 
-- Generalist Programmer
+- [Generalist Programmer](https://github.com/xXAstolXx/Shine-a-Way/blob/main/scripts/SceneSwitcher.gd)
 - [UI Programmer](https://github.com/xXAstolXx/Shine-a-Way/blob/main/scripts/Main_Menu.gd)
+## Tools 
+- Godot 3.5 and GDScript
+- Mercurial and TortoiseHg(VCS)
+## Website
+
