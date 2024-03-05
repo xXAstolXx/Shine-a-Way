@@ -15,4 +15,4 @@ As an electrician you just want to do your job: fix the light. <br> But experime
 - Godot 3.5 and GDScript
 - Mercurial and TortoiseHg(VCS)
 ## Website
-
+![Itch.io Icon](ReadMe/itch.io_icon.png)[Shine a Way](https://s4g.itch.io/shine-a-way)
